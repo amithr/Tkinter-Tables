@@ -19,7 +19,7 @@ def generate_table(contact_information, window):
         contacts.append((f'name {n}', f'number {n}', f'email{n}@example.com'))
 
     # add data to the treeview
-    for contact in contacts:
+    for contact in contact_information:
         print(contact)
         tree.insert('', tk.END, values=contact)
 
@@ -33,8 +33,3 @@ def generate_table(contact_information, window):
     tree.bind('<<TreeviewSelect>>', item_selected)
 
     tree.grid(row=0, column=0, sticky='nsew')
-
-    # add a scrollbar
-    scrollbar = ttk.Scrollbar(window, orient=tk.VERTICAL, command=tree.yview)
-    tree.configure(yscroll=scrollbar.set)
-    scrollbar.grid(row=0, column=1, sticky='ns')
